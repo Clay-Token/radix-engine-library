@@ -93,9 +93,13 @@ dependencies {
     }
 
     testImplementation group: 'junit', name: 'junit', version: '4.13'
-    testImplementation 'org.powermock:powermock-module-junit4:1.7.4'
     testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.1.12'
-    testImplementation 'org.powermock:powermock-api-mockito2:1.7.4'
+    testImplementation('org.powermock:powermock-module-junit4:1.7.4') {
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+    }
+    testImplementation('org.powermock:powermock-api-mockito2:1.7.4') {
+        exclude group: 'org.hamcrest', module: 'hamcrest-core'
+    }
     testImplementation 'org.hamcrest:hamcrest-library:2.2'
     testImplementation 'org.assertj:assertj-core:3.15.0'
     testImplementation('com.flipkart.zjsonpatch:zjsonpatch:0.4.9') {
